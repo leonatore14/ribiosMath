@@ -33,3 +33,4 @@ colKappa(testMat)
 Other kappa functions: \code{\link{kappaSimp}},
   \code{\link{rowKappa}}
 }
+\concept{kappa functions}

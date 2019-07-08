@@ -27,3 +27,4 @@ ribiosMath:::kappaSimp(testMat)
 Other kappa functions: \code{\link{colKappa}},
   \code{\link{rowKappa}}
 }
+\concept{kappa functions}

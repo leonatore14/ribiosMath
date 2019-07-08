@@ -33,3 +33,4 @@ stopifnot(identical(rowKappa(testMat), colKappa(t(testMat))))
 Other kappa functions: \code{\link{colKappa}},
   \code{\link{kappaSimp}}
 }
+\concept{kappa functions}
