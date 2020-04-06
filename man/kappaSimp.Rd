@@ -24,7 +24,8 @@ ribiosMath:::kappaSimp(testMat)
 \seealso{
 \code{\link{colKappa}} to calculate the same statistic using a linear algebra based routine
 
-Other kappa functions: \code{\link{colKappa}},
-  \code{\link{rowKappa}}
+Other kappa functions: 
+\code{\link{colKappa}()},
+\code{\link{rowKappa}()}
 }
 \concept{kappa functions}

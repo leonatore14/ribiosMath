@@ -30,7 +30,8 @@ colKappa(testMat)
 \seealso{
 \code{\link{rowKappa}} to calculate the statistic of rows
 
-Other kappa functions: \code{\link{kappaSimp}},
-  \code{\link{rowKappa}}
+Other kappa functions: 
+\code{\link{kappaSimp}()},
+\code{\link{rowKappa}()}
 }
 \concept{kappa functions}

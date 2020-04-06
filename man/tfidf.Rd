@@ -4,9 +4,12 @@
 \alias{tfidf}
 \title{Calculate TF-IDF using a input matrix with terms in rows and documents in columns}
 \usage{
-tfidf(tdMat, tfVariant = c("raw", "binary", "frequency", "log",
-  "doubleNorm0.5"), idfVariant = c("raw", "smooth", "probabilistic"),
-  idfAddOne = TRUE)
+tfidf(
+  tdMat,
+  tfVariant = c("raw", "binary", "frequency", "log", "doubleNorm0.5"),
+  idfVariant = c("raw", "smooth", "probabilistic"),
+  idfAddOne = TRUE
+)
 }
 \arguments{
 \item{tdMat}{A term-document matrix, terms in rows, documents in columns, and counts as integers (or logical values) in cells}
@@ -19,6 +22,9 @@ tfidf(tdMat, tfVariant = c("raw", "binary", "frequency", "log",
 }
 \description{
 Calculate TF-IDF using a input matrix with terms in rows and documents in columns
+}
+\details{
+
 }
 \examples{
 tiExample <- matrix(c(1,1,1,1,1,

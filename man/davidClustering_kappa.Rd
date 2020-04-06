@@ -4,8 +4,13 @@
 \alias{davidClustering_kappa}
 \title{Cluster rows of a Kappa-statistic-matrix by the hierarhical fuzzy multi-linkage partitioning method proposed by DAVID}
 \usage{
-davidClustering_kappa(kappaMatrix, kappaThr = 0.35,
-  initialGroupMembership = 3L, multiLinkageThr = 0.5, mergeRule = 1L)
+davidClustering_kappa(
+  kappaMatrix,
+  kappaThr = 0.35,
+  initialGroupMembership = 3L,
+  multiLinkageThr = 0.5,
+  mergeRule = 1L
+)
 }
 \arguments{
 \item{kappaMatrix}{A numeric matrix of Kappa statistics, which is likely returned by \code{\link{rowKappa}} or \code{\link{colKappa}}}

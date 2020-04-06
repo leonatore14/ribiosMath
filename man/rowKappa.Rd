@@ -30,7 +30,8 @@ stopifnot(identical(rowKappa(testMat), colKappa(t(testMat))))
 \seealso{
 \code{\link{colKappa}} to calculate the statistic of rows
 
-Other kappa functions: \code{\link{colKappa}},
-  \code{\link{kappaSimp}}
+Other kappa functions: 
+\code{\link{colKappa}()},
+\code{\link{kappaSimp}()}
 }
 \concept{kappa functions}
