@@ -24,7 +24,22 @@ tfidf(
 Calculate TF-IDF using a input matrix with terms in rows and documents in columns
 }
 \details{
+\code{tfVariant} accepts following options:
+\describe{
+  \item{raw}{The input matrix is used as it is.}
+  \item{binary}{The input matrix is transformed into logical values.}
+  \item{frequency}{Term frequency per document is calculated from the input matrix.}
+  \item{log}{Transformation \code{log(1+tfMat)} }
+  \item{doubleNorm0.5}{Double normalisation 0.5}
+}
 
+\code{idfVariant} accepts following options:
+\describe{
+  \item{raw}{\code{log(N/Nt)}}
+  \item{smooth}{\code{log(1+N/Nt)}}
+  \item{probabilistic}{\code{log((N-nt)/nt)}}
+}
+, where \code{N} represents the total number of documents in the corpus, and \code{nt} is the number of documents where the term \code{t} appears. If \code{idfAddOne} is set \code{TRUE}, both numbers with addition of 1 to prevent division-by-zero.
 }
 \examples{
 tiExample <- matrix(c(1,1,1,1,1,
@@ -38,4 +53,7 @@ colnames(tiExample) <- sprintf("D\%d", 1:ncol(tiExample))
 rownames(tiExample) <- sprintf("t\%d", 1:nrow(tiExample))
 tiRes <- tfidf(tiExample)
 
+}
+\references{
+The Wikipedia item on TF-IDF: \url{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}.
 }

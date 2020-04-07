@@ -82,19 +82,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// randmat
-RcppExport SEXP randmat(SEXP vec, SEXP size, SEXP N);
-RcppExport SEXP _ribiosMath_randmat(SEXP vecSEXP, SEXP sizeSEXP, SEXP NSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type vec(vecSEXP);
-    Rcpp::traits::input_parameter< SEXP >::type size(sizeSEXP);
-    Rcpp::traits::input_parameter< SEXP >::type N(NSEXP);
-    rcpp_result_gen = Rcpp::wrap(randmat(vec, size, N));
-    return rcpp_result_gen;
-END_RCPP
-}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_ribiosMath_cossimVec", (DL_FUNC) &_ribiosMath_cossimVec, 3},
@@ -103,7 +90,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_ribiosMath_colKappa", (DL_FUNC) &_ribiosMath_colKappa, 2},
     {"_ribiosMath_colKappaSimp", (DL_FUNC) &_ribiosMath_colKappaSimp, 2},
     {"_ribiosMath_rowKappa", (DL_FUNC) &_ribiosMath_rowKappa, 2},
-    {"_ribiosMath_randmat", (DL_FUNC) &_ribiosMath_randmat, 3},
     {NULL, NULL, 0}
 };
 

@@ -21,8 +21,9 @@
 #'   \item{probabilistic}{\code{log((N-nt)/nt)}}
 #' }
 #' , where \code{N} represents the total number of documents in the corpus, and \code{nt} is the number of documents where the term \code{t} appears. If \code{idfAddOne} is set \code{TRUE}, both numbers with addition of 1 to prevent division-by-zero.
-#' 
-#' See \href{https://en.wikipedia.org/wiki/Tf%E2%80%93idf}{Wikipedia} for more information.
+#'
+#' @references
+#' The Wikipedia item on TF-IDF: \url{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}.
 #' 
 #' @examples 
 #' tiExample <- matrix(c(1,1,1,1,1,

@@ -21,6 +21,8 @@ setMethod("pexpvar", "bidata", function(x) cumsum(x@var)/sum(x@var))
 usrange <- function(x) {
    c(-abs(min(x, na.rm = TRUE)), abs(max(x, na.rm = TRUE)))
 }
+
+#' @importFrom methods new
 bidata.prcomp <- function(x, choices=1L:2L, scale=1L, rescaling=FALSE) {
   if (length(choices) != 2L) 
     stop("length of choices must be 2")
@@ -44,6 +46,8 @@ bidata.prcomp <- function(x, choices=1L:2L, scale=1L, rescaling=FALSE) {
   return(new("bidata", x=xx, y=yy, var=(x$sdev)^2))
 }
 
+#' @importFrom grDevices dev.flush dev.hold palette
+#' @importFrom graphics axis box par plot points text arrows
 biplot.bidata <- function(bidata,
                           var.axes = TRUE,
                           xlabs=NULL, ylabs=NULL,
