@@ -163,8 +163,8 @@ Rcpp::List davidClustering_kappa(Rcpp::NumericMatrix kappaMatrix,
                                    initialGroupMembership);
   dc_uniqueSeeds(seeds);
   dc_mergeSeeds(seeds,
-                multiLinkageThr=multiLinkageThr,
-                mergeRule=mergeRule);
+                multiLinkageThr,
+                mergeRule);
   return(Rcpp::wrap(seeds));
 }
 // You can include R code blocks in C++ files processed with sourceCpp
