@@ -44,6 +44,10 @@ jobs:
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
 
+      - name: Install GCC in Windows
+        if: runner.os == 'Windows'
+        uses: egor-tensin/setup-gcc@v1
+
       - name: Cache R packages
         if: runner.os != 'Windows'
         uses: actions/cache@v1
