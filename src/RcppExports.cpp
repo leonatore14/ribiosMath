@@ -20,14 +20,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // davidClustering_kappa
-Rcpp::List davidClustering_kappa(Rcpp::NumericMatrix kappaMatrix, double kappaThr, int initialGroupMembership, double multiLinkageThr, int mergeRule);
+Rcpp::List davidClustering_kappa(Rcpp::NumericMatrix kappaMatrix, double kappaThr, unsigned initialGroupMembership, double multiLinkageThr, int mergeRule);
 RcppExport SEXP _ribiosMath_davidClustering_kappa(SEXP kappaMatrixSEXP, SEXP kappaThrSEXP, SEXP initialGroupMembershipSEXP, SEXP multiLinkageThrSEXP, SEXP mergeRuleSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type kappaMatrix(kappaMatrixSEXP);
     Rcpp::traits::input_parameter< double >::type kappaThr(kappaThrSEXP);
-    Rcpp::traits::input_parameter< int >::type initialGroupMembership(initialGroupMembershipSEXP);
+    Rcpp::traits::input_parameter< unsigned >::type initialGroupMembership(initialGroupMembershipSEXP);
     Rcpp::traits::input_parameter< double >::type multiLinkageThr(multiLinkageThrSEXP);
     Rcpp::traits::input_parameter< int >::type mergeRule(mergeRuleSEXP);
     rcpp_result_gen = Rcpp::wrap(davidClustering_kappa(kappaMatrix, kappaThr, initialGroupMembership, multiLinkageThr, mergeRule));

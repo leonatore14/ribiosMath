@@ -8,7 +8,7 @@ typedef std::list< std::vector<int> > IntList;
 
 IntList dc_kappaRowSeeds(NumericMatrix kappaMatrix,
                          double kappaThr = 0.35,
-                         int initialGroupMembership = 3) {
+                         unsigned initialGroupMembership = 3) {
    int anrow = kappaMatrix.nrow();
    int ancol = kappaMatrix.ncol();
    if(anrow != ancol) {
@@ -50,7 +50,7 @@ IntList dc_kappaRowSeeds(NumericMatrix kappaMatrix,
 void dc_uniqueSeeds(IntList &seeds) {
   for(IntList::iterator it=seeds.begin(); it!=seeds.end(); ++it) {
     std::sort(it->begin(), it->end());
-    std::transform(it->begin(), it-> end(), 
+    std::transform(it->begin(), it-> end(),
                    it->begin(), std::bind2nd( std::plus<int>(), 1 ) );
   }
   seeds.sort();
@@ -116,7 +116,7 @@ void dc_mergeSeeds(IntList &seeds,
 //'
 //' @param kappaMatrix A numeric matrix of Kappa statistics, which is likely returned by \code{\link{rowKappa}} or \code{\link{colKappa}}
 //' @param kappaThr Numeric, the threshold of the Kappa statistic, which is used to select initial seeds. Default value: 0.35, as recommended by the authors of the original study based on their experiences.
-//' @param initialGroupMembership Integer, the number of minimal members in initial groups. Default value: 3.
+//' @param initialGroupMembership Non-negative integer, the number of minimal members in initial groups. Default value: 3.
 //' @param multiLinkageThr Numeric, the minimal linkage between two groups to be merged. Default value: 0.5.
 //' @param mergeRule Integer, how two seeds are merged. See below.
 //' 
@@ -155,12 +155,12 @@ void dc_mergeSeeds(IntList &seeds,
 // [[Rcpp::export]]
 Rcpp::List davidClustering_kappa(Rcpp::NumericMatrix kappaMatrix,
                                 double kappaThr = 0.35,
-                                int initialGroupMembership = 3,
+                                unsigned initialGroupMembership = 3,
                                 double multiLinkageThr=0.5,
                                 int mergeRule=1) {
   IntList seeds = dc_kappaRowSeeds(kappaMatrix,
-                                   kappaThr=kappaThr,
-                                   initialGroupMembership=initialGroupMembership);
+                                   kappaThr,
+                                   initialGroupMembership);
   dc_uniqueSeeds(seeds);
   dc_mergeSeeds(seeds,
                 multiLinkageThr=multiLinkageThr,

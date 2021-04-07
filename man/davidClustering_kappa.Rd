@@ -17,7 +17,7 @@ davidClustering_kappa(
 
 \item{kappaThr}{Numeric, the threshold of the Kappa statistic, which is used to select initial seeds. Default value: 0.35, as recommended by the authors of the original study based on their experiences.}
 
-\item{initialGroupMembership}{Integer, the number of minimal members in initial groups. Default value: 3.}
+\item{initialGroupMembership}{Non-negative integer, the number of minimal members in initial groups. Default value: 3.}
 
 \item{multiLinkageThr}{Numeric, the minimal linkage between two groups to be merged. Default value: 0.5.}
 
