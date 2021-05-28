@@ -14,3 +14,6 @@ RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 RUN R -e "library(devtools); devtools::install_github('bedapub/ribiosMath');"
 
 RUN make check
+
+ENTRYPOINT [ "R" ]
+CMD [ "R --vanilla" ]
