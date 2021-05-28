@@ -10,4 +10,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/
 RUN R -e "install.packages('devtools', dependencies=TRUE, repo='http://cran.rstudio.com/');" 
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
+# Install ribiosMath
 RUN R -e "library(devtools); devtools::install_github('bedapub/ribiosMath');"
