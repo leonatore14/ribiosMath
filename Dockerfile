@@ -12,3 +12,5 @@ RUN R -e "install.packages('devtools', dependencies=TRUE, repo='http://cran.rstu
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 RUN R -e "library(devtools); devtools::install_github('bedapub/ribiosMath');"
+
+RUN R -e "make check"
