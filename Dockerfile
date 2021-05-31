@@ -8,7 +8,7 @@ RUN apt-get update -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/;
 
 # Start R
-CMD [ "R --vanilla" ]
+# CMD [ "R --vanilla" ]
 
 # Install devtools
 RUN R -e "install.packages('devtools', dependencies=TRUE, repo='http://cran.rstudio.com/');" && \
