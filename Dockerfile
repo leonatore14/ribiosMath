@@ -15,7 +15,7 @@ RUN R -e "install.packages('devtools', dependencies=TRUE, repo='http://cran.rstu
 RUN R -e "library(devtools); devtools::install_github('bedapub/ribiosMath');"
 
 #Make check
-RUN make check
+#RUN make check
 
 #Set entypoint
-ENTRYPOINT ["/bin/sh"]
+#ENTRYPOINT ["/bin/sh"]
