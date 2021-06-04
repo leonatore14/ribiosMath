@@ -18,4 +18,4 @@ RUN R -e "library(devtools); devtools::install_github('bedapub/ribiosMath');"
 #RUN make check
 
 #Set entypoint
-#ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/sh", "-c"]
