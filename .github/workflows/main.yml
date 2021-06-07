@@ -22,10 +22,10 @@ jobs:
           
  
         - name: Build the Docker image
-          run:  |
-                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]') \
+          run: |
+                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]') \
                 docker build -t ghcr.io/$REPOSITORY/ribiosmath:latest . 
                
         - name: Push the Docker image to the registry
           run:  docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} \
-                ghcr.io/$REPOSITORY/ribiosmath:latest
+                docker push ghcr.io/$REPOSITORY/ribiosmath:latest
