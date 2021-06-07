@@ -11,20 +11,23 @@ jobs:
   push_to_registry:
 
     runs-on: ubuntu-latest
-
+    env: 
+      toplevel: ghcr.io
+      repository: $(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')
+      imagename: ribiosmath
+      
     steps:
         - name: Check out the repository
           uses: actions/checkout@v2
           
         - name: Login to the GitHub Container Registry
-          run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login {{ env.TOPLEVEL }} -u ${{ github.actor }} --password-stdin
           
         - name: Build the Docker image
           run: |
-                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]') 
-                docker build -t ghcr.io/$REPOSITORY/ribiosmath:latest . 
+                docker build -t ${{toplevel}}/${{repository}}/${{imagename}} . 
                
         - name: Push the Docker image to the registry
           run: |
-                docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} 
-                docker push ghcr.io/$REPOSITORY/ribiosmath:latest
+                docker push ${{toplevel}}/${{repository}}/${{imagename}}:${{ github.sha }} 
+                docker push ${{toplevel}}/${{repository}}/${{imagename}}:latest
