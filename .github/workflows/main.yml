@@ -17,6 +17,9 @@ jobs:
       IMAGE: ribiosmath
       
     steps:
+        - name: Test
+          run: echo ${{env.TOPLEVEL}}/${{env.REPOSITORY}}/${{env.IMAGE}}:${{ github.sha }}
+    
         - name: Check out the REPOSITORY
           uses: actions/checkout@v2
           
