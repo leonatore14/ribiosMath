@@ -12,12 +12,12 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-      toplevel: ghcr.io
-      repository: $(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')
-      imagename: ribiosmath
+      TOPLEVEL: ghcr.io
+      REPOSITORY: $(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')
+      IMAGE: ribiosmath
       
     steps:
-        - name: Check out the repository
+        - name: Check out the REPOSITORY
           uses: actions/checkout@v2
           
         - name: Login to the GitHub Container Registry
@@ -25,9 +25,9 @@ jobs:
           
         - name: Build the Docker image
           run: |
-                docker build -t ${{toplevel}}/${{repository}}/${{imagename}} . 
+                docker build -t ${{env.TOPLEVEL}}/${{env.REPOSITORY}}/${{env.IMAGE}} . 
                
         - name: Push the Docker image to the registry
           run: |
-                docker push ${{toplevel}}/${{repository}}/${{imagename}}:${{ github.sha }} 
-                docker push ${{toplevel}}/${{repository}}/${{imagename}}:latest
+                docker push ${{env.TOPLEVEL}}/${{env.REPOSITORY}}/${{env.IMAGE}}:${{ github.sha }} 
+                docker push ${{env.TOPLEVEL}}/${{env.REPOSITORY}}/${{env.IMAGE}}:latest
