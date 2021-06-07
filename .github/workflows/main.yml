@@ -13,12 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       TOPLEVEL: ghcr.io
-      REPOSITORY: ${{ echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]' }}
       IMAGE: ribiosmath
       
     steps:
         - name: Test
-          run: echo ${{ env.TOPLEVEL }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }}
+          run: ${{ env.REPOSITORY }} = ${{ env.TOPLEVEL }}/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/${{ env.IMAGE }}
     
         - name: Check out the REPOSITORY
           uses: actions/checkout@v2
@@ -28,10 +27,9 @@ jobs:
           
         - name: Build the Docker image
           run: |
-                docker build -t ${{ env.TOPLEVEL }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }} \
-                -t ${{ env.TOPLEVEL }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:latest . 
+                docker build -t ${{ env.REPOSITORY }}:${{ github.sha }} -t ${{ env.REPOSITORY }}:latest . 
                
         - name: Push the Docker image to the registry
           run: |
-                docker push ${{ env.TOPLEVEL }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }} 
-                docker push ${{ env.TOPLEVEL }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:latest
+                docker push ${{ env.REPOSITORY }}:${{ github.sha }} 
+                docker push ${{ env.REPOSITORY }}:latest
