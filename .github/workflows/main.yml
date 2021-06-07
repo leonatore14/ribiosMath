@@ -26,5 +26,5 @@ jobs:
           with:
             push: true
             tags: |
-             docker.pkg.github.com/leonatore14/ribiosmath/dockerimage:${{ github.sha }}
-             docker.pkg.github.com/leonatore14/ribiosmath/dockerimage:latest
+             ghcr.io/leonatore14/ribiosmath/dockerimage:${{ github.sha }}
+             ghcr.io/leonatore14/ribiosmath/dockerimage:latest
