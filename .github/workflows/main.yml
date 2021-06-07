@@ -19,13 +19,12 @@ jobs:
         - name: Login to the GitHub Container Registry
           run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
           
-          
- 
         - name: Build the Docker image
           run: |
-                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]') \
+                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]') 
                 docker build -t ghcr.io/$REPOSITORY/ribiosmath:latest . 
                
         - name: Push the Docker image to the registry
-          run:  docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} \
+          run: |
+                docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} 
                 docker push ghcr.io/$REPOSITORY/ribiosmath:latest
