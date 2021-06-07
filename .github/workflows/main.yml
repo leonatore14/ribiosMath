@@ -21,10 +21,12 @@ jobs:
             registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
+        - name: Get Repository Name
+          run: REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]') 
         - name: Build container image
           uses: docker/build-push-action@v2
           with:
             push: true
             tags: |
-             ghcr.io/leonatore14/ribiosmath/dockerimage:${{ github.sha }}
-             ghcr.io/leonatore14/ribiosmath/dockerimage:latest
+             ghcr.io/$REPOSITORY/dockerimage:${{ github.sha }}
+             ghcr.io/$REPOSITORY/dockerimage:latest
