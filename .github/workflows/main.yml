@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       TOPLEVEL: ghcr.io
-      REPOSITORY: ${{ $(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]') }}
+      REPOSITORY: ${{ echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]' }}
       IMAGE: ribiosmath
       
     steps:
