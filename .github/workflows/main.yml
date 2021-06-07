@@ -15,11 +15,17 @@ jobs:
     steps:
         - name: Check out the repository
           uses: actions/checkout@v2
+          
         - name: Login to the GitHub Container Registry
-          run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          
+          
+ 
         - name: Build the Docker image
-          run: REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]') \
-               docker build -t ghcr.io/$REPOSITORY/ribiosmath:latest . 
+          run:  |
+                REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]') \
+                docker build -t ghcr.io/$REPOSITORY/ribiosmath:latest . 
+               
         - name: Push the Docker image to the registry
-          run: docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} \
-               ghcr.io/$REPOSITORY/ribiosmath:latest
+          run:  docker push ghcr.io/$REPOSITORY/ribiosmath:${{ github.sha }} \
+                ghcr.io/$REPOSITORY/ribiosmath:latest
