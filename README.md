@@ -21,6 +21,8 @@ devtools::install_github("bedapub/ribiosMath")
 
 1. `make check` is not clean yet.
 
+## Singularity
+
 1. `ml Singularity/3.6.3` 
 2. `singularity build --sandbox directory/ docker://ghcr.io/leonatore14/ribiosmath/ribiosmath:latest` 
 3. `singularity run --writable --no-home directory/ make -C /ribiosMath test` 
